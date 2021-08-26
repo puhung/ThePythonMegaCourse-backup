@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pu-Hung Li</title>
+    <!-- 'rel' declare the type of the file we are linking to. -->
+    <!-- 'url_for' function takes folder name and the file name as parameter  -->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/main.css')}}"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Pu-Hung Li Portfolio</h1>
+        <strong
+          ><nav>
+            <ul class="menu">
+              <!-- this will trigger the python home function: home()-->
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <!-- this will trigger the python about function and render the about.html file through the render_template-->
+              <li><a href="{{ url_for('about') }}">About</a></li>
+              <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+            </ul>
+          </nav></strong
+        >
+      </div>
+    </header>
+    <!-- link this layout.html file with the home, about html pages -->
+    <div class="container">
+      <!-- templating inheritance: the layout template now is base template, while the child template will be home.html or about.html file.-->
+      <!-- the child file will fill in here  -->
+      {%block content%} {%endblock%}
+    </div>
+  </body>
+</html>
